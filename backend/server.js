@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 // Замените этой строкой ту, что была:
-mongoose.connect('mongodb+srv://dkurganbaev_db_user:TodoPass2025@cluster0.mqekpc8.mongodb.net/?appName=Cluster0')
+mongoose.connect(process.env.MONGO_URI)
 
     .then(() => console.log('✅ Успешно подключено к MongoDB Atlas'))
     .catch(err => console.error('❌ Ошибка подключения:', err));// 2. Описание модели задачи (Schema)
