@@ -1,19 +1,21 @@
 const API_URL = 'https://final-todo.onrender.com/tasks';
 
-// Загрузка задач при старте
 async function fetchTasks() {
     try {
         const response = await fetch(API_URL);
-        if (!response.ok) throw new Error('Ошибка сервера');
+        if (!response.ok) {
+            throw new Error(`Ошибка сервера: ${response.status}`);
+        }
         const tasks = await response.json();
         const list = document.getElementById('todo-list');
         list.innerHTML = '';
         tasks.forEach(task => displayTask(task));
     } catch (err) {
-        console.error('Сервер не отвечает:', err);
+        console.error('Ошибка fetchTasks:', err);
+        // Выводим сообщение для пользователя прямо в список
+        document.getElementById('todo-list').innerHTML = `<p style="color:red">Не удалось загрузить задачи. Сервер "прогревается", подождите 30 секунд или проверьте настройки БД.</p>`;
     }
 }
-
 function displayTask(task) {
     const list = document.getElementById('todo-list');
     const li = document.createElement('li');
