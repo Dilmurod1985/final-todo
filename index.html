@@ -3,20 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>my-ultimate-todo</title>
+    <title>My Ultimate To-Do</title>
+    <link rel="icon" href="data:,">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    
-    <section class="section todo reveal" id="todo">
-    <h2>Мои задачи</h2>
-    <div class="todo-container">
-        <input type="text" id="todo-input" placeholder="Что нужно сделать?">
-        <button id="add-btn">Добавить</button>
-        <ul id="todo-list">
-            </ul>
+<div class="container">
+    <div class="theme-switch-wrapper">
+        <button id="theme-toggle" onclick="toggleTheme()">🌙 Темная тема</button>
     </div>
+
+    <h1>Мои задачи</h1>
+    
+    <div class="search-section">
+        <input type="text" id="search-input" placeholder="Поиск по задачам или категориям..." oninput="filterTasks()">
+    </div>
+
+    <div class="input-section">
+        <input type="text" id="task-input" placeholder="Что нужно сделать?">
+        <select id="task-category">
+            <option value="Личное">Личное</option>
+            <option value="Работа">Работа</option>
+            <option value="Учеба">Учеба</option>
+        </select>
+        <button onclick="addTask()">Добавить</button>
+    </div>
+
+    <ul id="todo-list"></ul>
+</div>
+
     <script src="script.js"></script>
-</section>
 </body>
 </html>
