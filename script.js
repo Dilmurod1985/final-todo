@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5000/tasks';
+const API_URL = 'https://final-todo.onrender.com/tasks';
 
 // Загрузка всех задач
 async function loadTasks() {
